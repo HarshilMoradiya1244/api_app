@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 
 class HomeProvider with ChangeNotifier{
 
-  StatusModel? statusModel =StatusModel();
+  StatusModel? statusModel ;
 
   Future<void> getData()
   async {

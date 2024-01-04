@@ -10,7 +10,7 @@ class StatusModel {
     this.articalList});
 
   factory StatusModel.mapToModel(Map m1){
-    List artical = m1['artical'];
+    List artical = m1['articles'];
 
     return StatusModel(
       status: m1['status'],
