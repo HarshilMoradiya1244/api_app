@@ -41,7 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Image.network(providerw!
                                   .statusModel!.articalList![index].urlToImage ??
-                              "https://yt3.googleusercontent.com/y_esGAQOhX4rTpWvrALErAJlFbm_2TIVrvcVfcZny7TuA8dJZgOQcC6KRfd_J5hljFe-foYXj9U=s900-c-k-c0x00ffffff-no-rj+"),
+                              "https://yt3.googleusercontent.com/y_esGAQOhX4rTpWvrALErAJlFbm_2TIVrvcVfcZny7TuA8dJZgOQcC6KRfd_J5hljFe-foYXj9U=s900-c-k-c0x00ffffff-no-rj"),
+                          const SizedBox(height: 10,),
                           Text("${providerw!.statusModel!.articalList![index].title}",style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
                           const SizedBox(height: 10,),
                           Text("${providerw!.statusModel!.articalList![index].publishedAt}",style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
