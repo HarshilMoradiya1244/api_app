@@ -11,7 +11,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, 'home');
+      Navigator.pushReplacementNamed(context, 'dash');
     });
     return SafeArea(
       child: Scaffold(

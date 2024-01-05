@@ -19,4 +19,5 @@ class HomeProvider with ChangeNotifier{
     statusModel = user;
     notifyListeners();
   }
+
 }
