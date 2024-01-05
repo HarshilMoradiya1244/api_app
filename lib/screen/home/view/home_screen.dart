@@ -73,6 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
           {required String name, required String countryCode}) =>
       ActionChip(
         label: Text(name),
+        backgroundColor: providerr!.selectedCountry == countryCode?Colors.blue:Colors.white,
         onPressed: () {
           providerr!.Country(countryCode);
           providerr!.getData();
