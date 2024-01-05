@@ -24,39 +24,65 @@ class _HomeScreenState extends State<HomeScreen> {
     providerw = context.watch<HomeProvider>();
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Country News"),
-        ),
-        body: providerw!.statusModel == null
-            ? const Center(child: CircularProgressIndicator())
-            : ListView.builder(
-                itemCount: providerw!.statusModel!.articalList!.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Container(
-                      height: MediaQuery.sizeOf(context).height * 0.8,
-                      width: MediaQuery.sizeOf(context).width,
-                      child: Column(
-                        children: [
-                          Image.network(providerw!
-                                  .statusModel!.articalList![index].urlToImage ??
-                              "https://yt3.googleusercontent.com/y_esGAQOhX4rTpWvrALErAJlFbm_2TIVrvcVfcZny7TuA8dJZgOQcC6KRfd_J5hljFe-foYXj9U=s900-c-k-c0x00ffffff-no-rj"),
-                          const SizedBox(height: 10,),
-                          Text("${providerw!.statusModel!.articalList![index].title}",style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
-                          const SizedBox(height: 10,),
-                          Text("${providerw!.statusModel!.articalList![index].publishedAt}",style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+          appBar: AppBar(
+            centerTitle: true,
+            title: const Text("Country News"),
+          ),
+          body: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  buildActionChip(name: "USA", countryCode: 'us'),
+                  buildActionChip(name: "INDIA", countryCode: 'in'),
+                  buildActionChip(name: "CANADA", countryCode: 'ca'),
+                  buildActionChip(name: "AUS", countryCode: 'au'),
+                ],
+              ),
+              providerw!.statusModel == null
+                  ? const Center(child: CircularProgressIndicator())
+                  : Expanded(
+                      child: ListView.builder(
+                        itemCount: providerw!.statusModel!.articalList!.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: ListTile(
+                                leading: Image.network(providerw!.statusModel!
+                                        .articalList![index].urlToImage ??
+                                    "https://yt3.googleusercontent.com/y_esGAQOhX4rTpWvrALErAJlFbm_2TIVrvcVfcZny7TuA8dJZgOQcC6KRfd_J5hljFe-foYXj9U=s900-c-k-c0x00ffffff-no-rj"),
+                                title: Text(
+                                  "${providerw!.statusModel!.articalList![index].title}",
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                ),
+                                onTap: () {
+                                  Navigator.pushNamed(context, 'tesla');
+                                },
+                              ));
+                        },
+                      ),
+                    ),
+            ],
+          )),
+    );
+  }
+
+  ActionChip buildActionChip(
+          {required String name, required String countryCode}) =>
+      ActionChip(
+        label: Text(name),
+        onPressed: () {
+          providerr!.Country(countryCode);
+          providerr!.getData();
+        },
+      );
+}
+
+/*
+*     Text("${providerw!.statusModel!.articalList![index].publishedAt}",style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
                           const SizedBox(height: 10,),
                           Text("===>   ${providerw!.statusModel!.articalList![index].description}"),
                           const SizedBox(height: 5,),
-                          Text("===>   ${providerw!.statusModel!.articalList![index].content}"),
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
-      ),
-    );
-  }
-}
+                          Text("===>   ${providerw!.statusModel!.articalList![index].content}"),*/

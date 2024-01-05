@@ -5,11 +5,17 @@ import 'package:flutter/cupertino.dart';
 class HomeProvider with ChangeNotifier{
 
   StatusModel? statusModel ;
+  String selectedCountry = "us";
+
+  void Country(String country){
+    selectedCountry= country;
+    notifyListeners();
+  }
 
   Future<void> getData()
   async {
     ApiHelper apiHelper = ApiHelper();
-    StatusModel? user = await apiHelper.apiToGet();
+    StatusModel? user = await apiHelper.newsApi(selectedCountry);
     statusModel = user;
     notifyListeners();
   }
