@@ -46,20 +46,21 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: providerw!.statusModel!.articalList!.length,
                       itemBuilder: (context, index) {
                         return Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: ListTile(
-                              leading: Image.network(providerw!.statusModel!
-                                      .articalList![index].urlToImage ??
-                                  "https://yt3.googleusercontent.com/y_esGAQOhX4rTpWvrALErAJlFbm_2TIVrvcVfcZny7TuA8dJZgOQcC6KRfd_J5hljFe-foYXj9U=s900-c-k-c0x00ffffff-no-rj"),
-                              title: Text(
-                                "${providerw!.statusModel!.articalList![index].title}",
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 15),
-                              ),
-                              onTap: () {
-                                Navigator.pushNamed(context, 'tesla');
-                              },
-                            ));
+                          padding: const EdgeInsets.all(10.0),
+                          child: ListTile(
+                            leading: Image.network(providerw!.statusModel!
+                                    .articalList![index].urlToImage ??
+                                "https://yt3.googleusercontent.com/y_esGAQOhX4rTpWvrALErAJlFbm_2TIVrvcVfcZny7TuA8dJZgOQcC6KRfd_J5hljFe-foYXj9U=s900-c-k-c0x00ffffff-no-rj"),
+                            title: Text(
+                              "${providerw!.statusModel!.articalList![index].title}",
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                            onTap: () {
+                              Navigator.pushNamed(context, 'tesla');
+                            },
+                          ),
+                        );
                       },
                     ),
                   ),
@@ -68,6 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
   ActionChip buildActionChip(
           {required String name, required String countryCode}) =>
       ActionChip(
