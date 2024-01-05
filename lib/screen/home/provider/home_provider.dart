@@ -6,6 +6,7 @@ class HomeProvider with ChangeNotifier{
 
   StatusModel? statusModel ;
   String selectedCountry = "us";
+  List<StatusModel> newsList = [];
 
   void Country(String country){
     selectedCountry= country;

@@ -1,3 +1,4 @@
+import 'package:api_app/screen/home/model/home_model.dart';
 import 'package:api_app/screen/home/provider/home_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -45,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: ListView.builder(
                       itemCount: providerw!.statusModel!.articalList!.length,
                       itemBuilder: (context, index) {
+                        StatusModel dataList = providerw!.newsList[index];
                         return Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: ListTile(
@@ -56,8 +58,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: const TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 15),
                             ),
+
                             onTap: () {
-                              Navigator.pushNamed(context, 'tesla');
+                              Navigator.pushNamed(context, 'tesla',arguments: dataList);
                             },
                           ),
                         );
